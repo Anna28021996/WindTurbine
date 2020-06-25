@@ -14,19 +14,19 @@ import java.util.Scanner;
 
 public class WindkraftData {
 
-	// Attribute
+	// attributs
 	public String BladeAngle;
 	public String RotorOrientation;
 	public String Power;
 	public String WindAngle;
 	public String WindSpeed;
 
-	// Methoden
+	// This method extracts the data out of the "sensorData.csv" and writes them into the variables
 	void scan() throws FileNotFoundException {
 		File sensorData = new File("sensorData.csv");
 		Scanner data = new Scanner(sensorData);
 		String line = data.nextLine();
-		line = data.nextLine();
+		line = data.nextLine(); // only the second line of "sensorData.csv" is necessary
 		data.close();
 
 		String[] split = line.split(";");

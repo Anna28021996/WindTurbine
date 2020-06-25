@@ -3,6 +3,7 @@
  * Author: 		Johannes Buchberger
  *
  * This class opens the GUI in Main-method.
+ *
 */
 
 package application;
