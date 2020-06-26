@@ -2,7 +2,7 @@
  * HmiController.h
  *
  *  Created on: 14.06.2020
- *      Author: 49157
+ *  Author: Anna Kaiser
  */
 
 #ifndef HMICONTROLLER_H_

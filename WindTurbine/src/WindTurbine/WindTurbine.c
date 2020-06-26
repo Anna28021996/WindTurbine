@@ -2,15 +2,15 @@
  * WindTurbine.c
  *
  *  Created on: 15.06.2020
- *      Author: 49157
+ *  Author: Anna Kaiser
  */
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "../WindTurbine.h"
 
 
 enum BladeAngle turnBlade(double WindSpeed){
 	//this function returns the current BladeAngle depending on the WindSpeed
+
 	enum BladeAngle nextAngle;
 	if (WindSpeed <= 4.0 || WindSpeed>=25.0){
 		nextAngle = Ninety;
@@ -26,6 +26,7 @@ enum BladeAngle turnBlade(double WindSpeed){
 
 enum RotorOrientation turnRotor(int WindAngle){
 	//this function returns the current RotorOrientation depending on the WindAngle
+
 	enum RotorOrientation nextOrientation;
 	if (WindAngle >= 315 || WindAngle < 45){
 		nextOrientation = North;
@@ -43,6 +44,7 @@ enum RotorOrientation turnRotor(int WindAngle){
 }
 
 enum Power get_Power(enum BladeAngle currentAngle){
+	//this function returns the current Powerstatus depending on the BladeAngle
 	enum Power nextPower;
 	switch(currentAngle){
 	case Zero: nextPower = Little; break;

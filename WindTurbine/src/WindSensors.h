@@ -2,12 +2,14 @@
  * WindSensors.h
  *
  *  Created on: 14.06.2020
- *      Author: Anna Kaiser
+ *  Author: Anna Kaiser
  */
 
 #ifndef WINDSENSORS_H_
 #define WINDSENSORS_H_
 
+#include <stdio.h>
+#include <stdlib.h>
 
 int get_WindAngle(int WindAngle);
 double get_WindSpeed(double WindSpeed);

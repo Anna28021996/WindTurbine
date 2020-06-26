@@ -2,7 +2,6 @@
  ============================================================================
  Name        : WindTurbine.c
  Author      : Anna Kaiser
- Version     : 1
  ============================================================================
  */
 
@@ -17,6 +16,7 @@
 
 
 int main(void) {
+
 	// Eclipse-Konsolen BUG: Ausgabepuffer stdout/stderr auf 0 setzen
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);
@@ -34,28 +34,28 @@ int main(void) {
 
 		if (currentStatus == On){	//if User has switched on the regulation of the windturbine in the GUI
 
-		//get new WindAngle and windSpeed
-		windAngle= get_WindAngle(windAngle);
-		windSpeed  = get_WindSpeed(windSpeed);
+			//get new WindAngle and windSpeed
+			windAngle= get_WindAngle(windAngle);
+			windSpeed  = get_WindSpeed(windSpeed);
 
-		//Update currentBladeAngle, currentRotorOrientation, currentPower
-		enum BladeAngle currentBladeAngle = turnBlade(windSpeed);
-		enum RotorOrientation currentRotorOrientation = turnRotor(windAngle);
-		enum Power currentPower = get_Power(currentBladeAngle);
+			//Update currentBladeAngle, currentRotorOrientation, currentPower
+			enum BladeAngle currentBladeAngle = turnBlade(windSpeed);
+			enum RotorOrientation currentRotorOrientation = turnRotor(windAngle);
+			enum Power currentPower = get_Power(currentBladeAngle);
 
-		writeToCsv(currentBladeAngle, currentPower, currentRotorOrientation, windAngle, windSpeed);		//write to csv to update GUI
+			writeToCsv(currentBladeAngle, currentPower, currentRotorOrientation, windAngle, windSpeed);		//write to csv to update GUI
 
-		if (saveData(path) == 1){		//if user wants to save measurements in csv file
+			if (saveData(path) == 1){		//if user wants to save measurements in csv file
 				if(access(getPathFromUser(path), F_OK ) == -1){		//if the user chooses a csvFile that does not exist yet, a Headline is added to the file
-				writeHeadline(path);
+					writeHeadline(getPathFromUser(path));
+				}
+				writeMeasurementDataToCsv(windAngle, windSpeed, getPathFromUser(path));	//write measured Data to the chosen csv file
 			}
-			writeMeasurementDataToCsv(windAngle, windSpeed,path);	//write measured Data to the chosen csv file
+
+
+			Sleep(2000);
 		}
-
-
-		Sleep(2000);
 	}
-}
 
 
 

@@ -2,19 +2,16 @@
  * WindSensors.c
  *
  *  Created on: 14.06.2020
- *      Author: Anna Kaiser
+ *  Author: Anna Kaiser
  */
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "../WindSensors.h"
-
-
-
 
 
 int get_WindAngle(int currentAngle){
 	//returns measured WindAngle in the range 0 to 359 degrees.
 	//the maximum change to the previous measurement is +-10 degrees.
+
 	int nextAngle=currentAngle+randomNumber();
 	if (nextAngle>359){
 		nextAngle=nextAngle-360;
@@ -29,6 +26,7 @@ int get_WindAngle(int currentAngle){
 double get_WindSpeed(double currentSpeed){
 	//returns measured WindSpeed in the range 0 to 30 m/s
 	//the maximum change to the previous measurement is +-5 m/s.
+
 	double nextSpeed=currentSpeed+randomNumber()*0.5;
 	if (nextSpeed<0.0){
 		nextSpeed=nextSpeed*(-1);
@@ -42,6 +40,7 @@ double get_WindSpeed(double currentSpeed){
 
 int randomNumber(){
 	//creates random numbers between -10 and 10 except 0
+
 	int random= rand();
 	int sign;
 	if (random%2 == 0){

@@ -8,6 +8,9 @@
 #ifndef WINDTURBINE_H_
 #define WINDTURBINE_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 enum BladeAngle{Zero,Thirty,Ninety};
 enum RotorOrientation{North,East,South,West};
 enum Power{None, Little, Full};
