@@ -63,15 +63,13 @@ enum OnOffStatus readFromCsv(){
 }
 
 
-char* getPathFromUser(char path[]){
+void getPathFromUser(char path[], char pathFromUser[]){
 	//This function reads the content of the csv-file "path.csv". The file contains a path, where the user wants to save
 	//the measured Data to.
 
 	FILE *csvTarget = fopen(path, "r");
-	char *pathFromUser=(char*)malloc(200*sizeof(char));
 	fscanf(csvTarget,"%s",pathFromUser);
 	fclose(csvTarget);
-	return pathFromUser;
 }
 
 

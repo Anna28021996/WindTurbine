@@ -46,10 +46,12 @@ int main(void) {
 			writeToCsv(currentBladeAngle, currentPower, currentRotorOrientation, windAngle, windSpeed);		//write to csv to update GUI
 
 			if (saveData(path) == 1){		//if user wants to save measurements in csv file
-				if(access(getPathFromUser(path), F_OK ) == -1){		//if the user chooses a csvFile that does not exist yet, a Headline is added to the file
-					writeHeadline(getPathFromUser(path));
+				char pathFromUser[200];
+				getPathFromUser(path, pathFromUser);
+				if(access(pathFromUser, F_OK ) == -1){		//if the user chooses a csvFile that does not exist yet, a Headline is added to the file
+					writeHeadline(pathFromUser);
 				}
-				writeMeasurementDataToCsv(windAngle, windSpeed, getPathFromUser(path));	//write measured Data to the chosen csv file
+				writeMeasurementDataToCsv(windAngle, windSpeed, pathFromUser);	//write measured Data to the chosen csv file
 			}
 
 

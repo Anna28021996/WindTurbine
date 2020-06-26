@@ -25,7 +25,7 @@ enum OnOffStatus{On,Off};
 
 void writeToCsv(enum BladeAngle currentBladeAngle, enum Power currentPower, enum RotorOrientation currentRotorOrientation, int WindAngle, double WindSpeed);
 enum OnOffStatus readFromCsv();
-char* getPathFromUser();
+void getPathFromUser(char path[], char pathFromUser[]);
 bool saveData(char path[]);
 void writeMeasurementDataToCsv(int windAngle, double windSpeed, char path[]);
 void getTimeStamp(char time[25]);
